@@ -1,8 +1,10 @@
+import dbConnect from '../../lib/dbConnect';
+
 export default async function handler(req, res) {
   res.status(200).json({ text: 'Users' });
 }
 
-// import dbConnect from '../../lib/dbConnect';
+import dbConnect from '../../lib/dbConnect';
 // import User from '../../models/User';
 
 // export default async function handler(req, res) {
