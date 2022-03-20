@@ -4,10 +4,6 @@ import User from '../../models/User';
 export default async function handler(req, res) {
   const { method } = req;
 
-  res.status(200).json({ test: true });
-
-  return;
-
   await dbConnect();
 
   switch (method) {
