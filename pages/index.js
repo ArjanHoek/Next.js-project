@@ -1,47 +1,24 @@
 import Head from 'next/head';
-import Link from 'next/link';
+import { getUsers } from '../lib/users.js';
 
-import Date from '../components/date';
 import Layout, { siteTitle } from '../components/layout';
 
-import { getSortedPostsData } from '../lib/posts.js';
-
-import utilStyles from '../styles/utils.module.css';
-
 export async function getStaticProps() {
-  const allPostsData = getSortedPostsData();
+  const lodges = await getUsers();
   return {
     props: {
-      allPostsData,
+      lodges,
     },
   };
 }
 
-export default function Home({ allPostsData }) {
+export default function Home({ lodges }) {
+  console.log(lodges);
   return (
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={utilStyles.headingMd}>
-        <p>Hi, this is my first website created with Next.js</p>
-      </section>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Highker</h2>
-        <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-              <Link href={`/posts/${id}`}>
-                <a>{title}</a>
-              </Link>
-              <br />
-              <small className={utilStyles.lightText}>
-                <Date dateString={date} />
-              </small>
-            </li>
-          ))}
-        </ul>
-      </section>
     </Layout>
   );
 }
