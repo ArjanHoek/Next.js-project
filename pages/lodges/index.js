@@ -1,10 +1,10 @@
 import Head from 'next/head';
 
 import Layout, { siteTitle } from '../../components/layout';
-import Lodge from '../../components/cards/lodge.js';
+import LodgesList from '../../components/lists/LodgesList';
 import { getLodges } from '../../db/lodges';
 
-export default function Lodges({ data: lodges }) {
+export default function Lodges({ data }) {
   return (
     <Layout>
       <Head>
@@ -12,9 +12,7 @@ export default function Lodges({ data: lodges }) {
       </Head>
       <h3>Lodges</h3>
 
-      {lodges.map(lodge => (
-        <Lodge key={lodge._id} {...lodge} />
-      ))}
+      <LodgesList data={data} />
     </Layout>
   );
 }

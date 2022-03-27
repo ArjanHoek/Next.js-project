@@ -39,6 +39,18 @@ export const createLodge = async lodgeData => {
   }
 };
 
+export const updateLodge = async (id, body) => {
+  try {
+    await dbConnect();
+
+    const lodge = await Lodge.findByIdAndUpdate(id, body);
+
+    return JSON.parse(JSON.stringify(lodge));
+  } catch (err) {
+    throw new Error(err);
+  }
+};
+
 export const deleteLodge = async id => {
   try {
     await dbConnect();

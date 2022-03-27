@@ -1,5 +1,6 @@
 import Layout from '../../components/layout';
 import { getLodgeById } from '../../db/lodges';
+import Link from 'next/link';
 
 import { useRouter } from 'next/router';
 
@@ -26,7 +27,13 @@ export default function Lodge({ data: { name, country, _id } }) {
     <Layout>
       <h3>{name}</h3>
       <p>{country}</p>
-      <button onClick={onDelete}>Delete</button>
+      <div>
+        <button onClick={onDelete}>Delete</button>
+
+        <Link href={`/lodges/edit/${_id}`}>
+          <a>Edit</a>
+        </Link>
+      </div>
     </Layout>
   );
 }

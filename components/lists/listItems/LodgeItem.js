@@ -1,13 +1,13 @@
 import Link from 'next/link';
 
-export default function Lodge({ name, country, _id }) {
+export default function LodgeItem({ data: { name, country, _id } }) {
   return (
-    <div>
+    <li>
       <Link href={`/lodges/${_id}`}>
         <a>
           {name} ({country})
         </a>
       </Link>
-    </div>
+    </li>
   );
 }
