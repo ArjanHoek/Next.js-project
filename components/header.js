@@ -53,6 +53,13 @@ export default function Header({ home }) {
             <Link href="/lodges">
               <a>Lodges</a>
             </Link>
+            <ul className="nav-sub">
+              <li>
+                <Link href="/lodges/new">
+                  <a>Create</a>
+                </Link>
+              </li>
+            </ul>
           </li>
         </ul>
       </nav>

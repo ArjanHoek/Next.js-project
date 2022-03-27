@@ -1,10 +1,9 @@
 import Head from 'next/head';
 
 import Layout, { siteTitle } from '../../components/layout';
-import { getUsers } from '../../lib/users.js';
+import { getUsers } from '../../db/users';
 
 export default function Users({ data }) {
-  console.log(data);
   return (
     <Layout>
       <Head>

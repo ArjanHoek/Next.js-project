@@ -1,3 +1,6 @@
+$cl-primary-1: #659dbd;
+$cl-primary-2: #bc986a;
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -12,7 +15,7 @@ html {
 }
 
 a {
-  color: #0070f3;
+  color: $cl-primary-1;
   text-decoration: none;
 
   &:hover {
@@ -23,4 +26,22 @@ a {
 img {
   max-width: 100%;
   display: block;
+}
+
+ul {
+  list-style: none;
+  &.nav-sub {
+    padding-left: 1rem;
+
+    a {
+      color: $cl-primary-2;
+    }
+  }
+}
+
+.form {
+  &--lodge {
+    display: flex;
+    flex-direction: column;
+  }
 }

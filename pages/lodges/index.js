@@ -1,11 +1,10 @@
 import Head from 'next/head';
-import { getLodges } from '../../lib/lodges.js';
 
 import Layout, { siteTitle } from '../../components/layout';
 import Lodge from '../../components/cards/lodge.js';
+import { getLodges } from '../../db/lodges';
 
 export default function Lodges({ data: lodges }) {
-  console.log(lodges);
   return (
     <Layout>
       <Head>
@@ -21,5 +20,6 @@ export default function Lodges({ data: lodges }) {
 }
 
 export async function getServerSideProps() {
-  return { props: { data: await getLodges() } };
+  const data = await getLodges();
+  return { props: { data } };
 }

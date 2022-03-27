@@ -24,3 +24,29 @@ export const getLodgeById = async id => {
     throw new Error(err);
   }
 };
+
+export const createLodge = async lodgeData => {
+  try {
+    await dbConnect();
+
+    const lodge = new Lodge(lodgeData);
+
+    await lodge.save();
+
+    return JSON.parse(JSON.stringify(lodge));
+  } catch (err) {
+    throw new Error(err);
+  }
+};
+
+export const deleteLodge = async id => {
+  try {
+    await dbConnect();
+
+    const lodge = await Lodge.findByIdAndDelete(id);
+
+    return JSON.parse(JSON.stringify(lodge));
+  } catch (err) {
+    throw new Error(err);
+  }
+};
