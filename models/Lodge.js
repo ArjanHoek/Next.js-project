@@ -1,15 +1,6 @@
 import mongoose from 'mongoose';
+import { serverSchema } from '../schemas/lodgeSchema.js';
 
-const lodgeSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: [true, 'Provide the name of the lodge!'],
-  },
-  country: {
-    type: String,
-    required: [true, 'Provide the country in which the lodge is located!'],
-  },
-  location: [Number, Number],
-});
+const lodgeSchema = new mongoose.Schema(serverSchema);
 
 module.exports = mongoose.models.Lodge || mongoose.model('Lodge', lodgeSchema);

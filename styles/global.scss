@@ -1,5 +1,10 @@
-$cl-primary-1: #659dbd;
-$cl-primary-2: #bc986a;
+$cl-primary-1: #907163;
+$cl-primary-2: #379683;
+$cl-primary-3: #5cdb95;
+$cl-primary-4: #8ee4af;
+$cl-primary-5: #edf5e1;
+
+$cl-error-1: #f03e3e;
 
 * {
   box-sizing: border-box;
@@ -12,6 +17,19 @@ html {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   line-height: 1.6;
   // font-size: 62.5%;
+}
+
+input {
+  border: none;
+  outline: none;
+
+  &[type='submit'] {
+    cursor: pointer;
+  }
+}
+
+button {
+  cursor: pointer;
 }
 
 a {
@@ -40,8 +58,33 @@ ul {
 }
 
 .form {
+  label {
+    display: flex;
+    flex-direction: column;
+  }
+
   &--lodge {
     display: flex;
     flex-direction: column;
+
+    label {
+      color: $cl-primary-2;
+    }
+
+    input {
+      background-color: $cl-primary-5;
+      color: $cl-primary-1;
+      padding: 0.3rem 0.5rem;
+    }
+
+    input[type='submit'] {
+      font-weight: bold;
+      background-color: #fff;
+      border: 2px solid $cl-primary-5;
+    }
+  }
+
+  .input-error {
+    color: $cl-primary-1;
   }
 }
